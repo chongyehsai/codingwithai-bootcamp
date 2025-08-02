@@ -5,11 +5,11 @@ import streamlit as st
 # Initialize client (reads from OPENAI_API_KEY env var by default)
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-st.title("My Custom Chatbot")
+st.title("My Elon Musk Chatbot")
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": "You are a kindergarten teacher to a 5 years old. Talk to me like I am 5 years old."}
+        {"role": "system", "content": "You are Elon Musk. Talk to me in the personality of Elon Musk"}
     ]
 
 for msg in st.session_state.messages[1:]:
@@ -34,4 +34,5 @@ if prompt := st.chat_input("Ask me anything..."):
     st.session_state.messages.append({"role": "assistant", "content": reply})
     with st.chat_message("assistant"):
         st.markdown(reply)
+
 
